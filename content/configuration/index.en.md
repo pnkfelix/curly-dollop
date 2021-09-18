@@ -1,6 +1,6 @@
 ---
 title : "Configuration"
-weight : 20
+weight : 1000
 ---
 
 # Configuration
