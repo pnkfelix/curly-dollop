@@ -244,4 +244,101 @@ may want to download the `lil-game` repository and run the terminal application
 locally. Or you might prefer to `ssh` into the Cloud9 host from your terminal,
 which would also resolve this problem.)
 
-### Brief explanation of the game service and command set
+## Development
+
+At this point, you have seen enough that you could just make changes to the code,
+rebuild via `sam build` and redeploy via `sam deploy`.
+
+However, you might prefer to work with some of the code base more directly. For
+example, it can be awkward to debug the service while it is hosted on Lambda.
+(You *can* debug the Lambda hosted code, for example by emitting logging
+statements, or by adding more fields to the JSON responses returned from the
+Lambda..)
+
+### Directly running the game code
+
+As explained in earlier sections, our software architecture has a board game
+service that is separate from the command driver. The service does provide a local
+interface, called `local`\:
+
+```sh
+cargo run --release --bin local
+```
+
+This UI is deliberately not as polished as the `tictactui` UI. It specifically
+uses a transcript style interface, printing out each interaction separately
+rather than jumping around to different locations on the terminal; this will allow
+you to make use of `debug!` statements from your code as you work.
+
+It also uses a command interface that more closely matches the path interface
+used by the Lambda: you type one of `n`, `l`, `r`, or `s` to get each of the
+New, List, Render, or Select commands explained in an earlier section, like so\:
+
+```text
+TicTacToe
+     |     |     
+-----|-----|-----
+     |     |     
+-----|-----|-----
+     |     |     
+
+next command: [n, l, r, s] (with optional /<game>)
+? l
+game: "---------"
+list "---------" : [(1, "X--------"), (2, "-X-------"), (3, "--X------"), (4, "---X-----"), (5, "----X----"), (6, "-----X---"), (7, "------X--"), (8, "-------X-"), (9, "--------X")]
+choose a move from list above
+(you will see preview of it before you commit to it.)
+1
+Move 1 yields
+  X  |     |     
+-----|-----|-----
+     |     |     
+-----|-----|-----
+     |     |     
+
+Is this what you want (Y/n)?
+y
+next command: [n, l, r, s] (with optional /<game>)
+? 
+```
+
+For convenience, this interface does store the current game state and reuses it by default,
+so that you do not have to type very much to interact with it.
+
+However, all of the commands support the full-fledged path syntax that you can use to
+override the current state, like so:
+
+```text
+next command: [n, l, r, s] (with optional /<game>)
+? l/-X-------
+list "-X-------" : [(1, "OX-------"), (3, "-XO------"), (4, "-X-O-----"), (5, "-X--O----"), (6, "-X---O---"), (7, "-X----O--"), (8, "-X-----O-"), (9, "-X------O")]
+choose a move from list above
+(you will see preview of it before you commit to it.)
+2
+The number 2 is not in the list
+Please try again.
+list "-X-------" : [(1, "OX-------"), (3, "-XO------"), (4, "-X-O-----"), (5, "-X--O----"), (6, "-X---O---"), (7, "-X----O--"), (8, "-X-----O-"), (9, "-X------O")]
+choose a move from list above
+(you will see preview of it before you commit to it.)
+1
+Move 1 yields
+  O  |  X  |     
+-----|-----|-----
+     |     |     
+-----|-----|-----
+     |     |     
+
+Is this what you want (Y/n)?
+y
+next command: [n, l, r, s] (with optional /<game>)
+? r/-X------O
+render "-X------O" :
+     |  X  |     
+-----|-----|-----
+     |     |     
+-----|-----|-----
+     |     |  O  
+
+next command: [n, l, r, s] (with optional /<game>)
+? q
+```
