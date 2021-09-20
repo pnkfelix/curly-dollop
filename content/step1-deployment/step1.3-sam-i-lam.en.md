@@ -41,7 +41,7 @@ git clone https://github.com/pnkfelix/lil-game.git
 cd lil-game
 ```
 
-## Note: build artifacts somewhere "special"
+## Note\: Put build artifacts somewhere "special"
 
 The default SAM configuration tries to create a zip with all the contents of the
 directory. We don't need that, and we *especially* don't want it to do that with
