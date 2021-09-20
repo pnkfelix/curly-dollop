@@ -3,7 +3,7 @@ title : "Setting up a Cloud9 environment"
 weight : 22
 ---
 
-Much of today's material is applicable to any development environment: personal
+Much of today's material is applicable to any development environment\: personal
 machine, or cloud desktop.
 
 However, rather than write out instructions for every possible setting, these
@@ -18,7 +18,7 @@ it is listed with "Developer Tools" under the "All Services" list.
 
 Once there, hit the "Create environment" button, and fill out the form.
 
-On the next step:
+On the next step\:
 
  * For environment type, I use "Create a new EC2 instance for
 environment (direct access)"
@@ -40,7 +40,7 @@ And, also unfortunately, I do not know a way to do this trivially within the
 Cloud9 environment itself.
 
 But, there is a helper script provided by the Cloud9 team, here, under the section
-entitled "Resize an Amazon EBS volume used by an environment":
+entitled "Resize an Amazon EBS volume used by an environment"\:
 
 https://docs.aws.amazon.com/cloud9/latest/user-guide/move-environment.html
 
@@ -51,7 +51,7 @@ resize the drive to 50 GB.
 sh resize.sh 50
 ```
 
-You can double-check on how much size you have by running `df`:
+You can double-check on how much size you have by running `df`\:
 
 ```sh
 df -kh

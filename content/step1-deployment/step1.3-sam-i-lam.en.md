@@ -53,7 +53,7 @@ build products into the `lil-game` directory.
 
 To achieve that, we use a [config file setting](https://doc.rust-lang.org/cargo/reference/config.html#buildtarget-dir).
 
-Run this command:
+Run this command\:
 
 ```sh
 cat > .cargo/config
@@ -104,7 +104,7 @@ not preserved in between invocations.
 ## Deploy
 
 While we skipped the `sam init` step above, we will not skip the `sam deploy`
-step. Why: The `sam deploy` step generates a `samconfig.toml` file that has
+step. Why\: The `sam deploy` step generates a `samconfig.toml` file that has
 settings specific to your account in it (I believe). So, I cannot save us time
 by having us all share one that I put into my github repository.
 
@@ -114,7 +114,7 @@ For stack name, I'm using `lil-game-tictactoe`. You can use whatever you like.
 (But it might be a good idea to include "tictactoe" in the name, to make it easy
 to distinguish later.)
 
-For the remaining settings, I used the default, except in one case:
+For the remaining settings, I used the default, except in one case\:
 
 ```
         Setting default arguments for 'sam deploy'
@@ -132,7 +132,7 @@ For the remaining settings, I used the default, except in one case:
 ```
 
 Let this run. It will spit out a bunch of output, but at the end, if it is successful, it
-should end with lines that look like:
+should end with lines that look like\:
 
 ```
 CloudFormation outputs from deployed stack
@@ -163,7 +163,7 @@ should now see the function you deployed listed there.
 Click it, and then scroll down to the section with the tabs labelled "Code",
 "Test", "Monitor", ..., and choose "Test"
 
-Then, type in this JSON for the Test Event:
+Then, type in this JSON for the Test Event\:
 
 
 ```json
@@ -192,13 +192,13 @@ one requests a description of a fresh game state.
 If you take the URL printed above, and replace the end "hello/" with a command
 suitable for the game service, you should see a corresponding reponse.
 
-So, taking the above example again:
+So, taking the above example again\:
 
 ```sh
 curl https://uniqsnwflk.execute-api.us-east-2.amazonaws.com/Prod/n/
 ```
 
-prints this:
+prints this\:
 
 ```text
 {"command":"new-game","parsed_game_state":"---------","player":"X","next_game_states":null,"selected_move":null,"text":null,"victory":null}
@@ -214,7 +214,7 @@ A real consumer product would probably offer a mobile app or at least a web page
 interface to the service.
 
 But since we want a code base we can understand in under two hours, we resort to
-the next best thing: a terminal UI program.
+the next best thing\: a terminal UI program.
 
 The provided program, `tictactui`, will send HTTPS requests the same way that
 `curl` does, but it knows how to use the resulting JSON and the full set of game
@@ -227,7 +227,7 @@ cargo run --release --bin tictactui -- https://uniqsnwflk.execute-api.us-east-2.
 ```
 
 And, if things go right, it should draw the blank tictactoe board in the upper
-corner of the console and query you for your choice of next command, like so:
+corner of the console and query you for your choice of next command, like so\:
 
 ```text
       |     |

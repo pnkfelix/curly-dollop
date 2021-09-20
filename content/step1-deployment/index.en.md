@@ -22,11 +22,11 @@ work through some other opening material.
 
 # Exercises
 
-Exercise 1: Get a TicTacToe game launched, and demonstrate it running.
+Exercise 1\: Get a TicTacToe game launched, and demonstrate it running.
 
-Exercise 2: make simple modification and re-deploy: Go from provided trivial
+Exercise 2\: make simple modification and re-deploy: Go from provided trivial
 move selection to *anything* more intelligent.
 
-Exercise 3 (optional): Switch from TicTacToe to Connect Four, using code
+Exercise 3 (optional)\: Switch from TicTacToe to Connect Four, using code
 provided that replaces game core.
 

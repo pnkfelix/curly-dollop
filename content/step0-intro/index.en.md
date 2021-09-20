@@ -7,7 +7,7 @@ weight : 10
 
 Welcome!
 
-The plan for the workshop:
+The plan for the workshop\:
 
  * Introduction
    * Initiate cloud account setup

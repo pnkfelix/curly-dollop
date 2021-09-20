@@ -9,7 +9,7 @@ Lambda.
 ## Simple Games
 
 Since we only have a limited time in this workshop, we will only use relatively
-simple games for our examples today: Tic-Tac-Toe, Connect Four, and Checkers.
+simple games for our examples today\: Tic-Tac-Toe, Connect Four, and Checkers.
 
 We will use a prebaked software library that lets us represent simple games
 easily.
@@ -43,12 +43,12 @@ game-state to the service and ask it spell out what moves are available to a
 human player, or to choose a move itself.
 
 The protocol defines a fixed set of commands that are used to interact with any
-given game:
+given game\:
 
- * New (`/n/`): create a fresh game, where no moves have been made,
- * List (`/l/<game-state>`): lists the moves available from the current state,
- * Render (`/r/<game-state>`): produces a nice text rendering of the game state,
- * Select (`/s/<game-state>`): produces which move is best at that state, according to the game AI.
+ * New (`/n/`)\: create a fresh game, where no moves have been made,
+ * List (`/l/<game-state>`)\: lists the moves available from the current state,
+ * Render (`/r/<game-state>`)\: produces a nice text rendering of the game state,
+ * Select (`/s/<game-state>`)\: produces which move is best at that state, according to the game AI.
 
 With these operations, the interactions with many turn-based games can be encoded.
 
@@ -78,7 +78,7 @@ system might get smarter over time!)
 
 For a decent user experience, the player AI cannot search forever.
 
-We want to terminate search when either:
+We want to terminate search when either\:
  1. Move timer expires (i.e. move is forced),
  2. The player AI identifies an unbeatable move,
  3. The player AI determines current game is unwinnable, or
@@ -86,7 +86,7 @@ We want to terminate search when either:
     overrides speculation (e.g. that move under consideration has 100% loss
     record, and other moves have no record at all).
 
-So: Start search and initiate cloud database query, and then if
+So\: Start search and initiate cloud database query, and then if
 historical-move database bears fruit, then use that (and cancel search).
 
    (Desire to cancel ongoing search should motivate simple demo of `select!`;
