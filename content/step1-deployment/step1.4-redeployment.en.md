@@ -3,7 +3,7 @@ title : "Modifying and re-deploying a Lambda"
 weight : 24
 ---
 
-For our second exercise, we will modify the provided service code.
+For our next exercises, we will modify the provided service code.
 
 Namely, if you experimented with the provided computer player, you may have
 realized that its AI is heavy on the "artificial" and light on the
