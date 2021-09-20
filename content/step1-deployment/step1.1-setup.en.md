@@ -3,7 +3,7 @@ title : "Setting up an account"
 weight : 21
 ---
 
-::alert[In the actual re:Invent workshop, account setup will use Event Engine.]{header="Note"}
+::alert[In the actual re\:Invent workshop, account setup will use Event Engine.]{header="Note"}
 
 For today's (Monday 20 September 2021) Amazon-internal dry-run, we will use
 Isengard accounts.
