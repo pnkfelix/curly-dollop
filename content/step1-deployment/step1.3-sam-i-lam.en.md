@@ -243,10 +243,17 @@ corner of the console and query you for your choice of next command, like so\:
  ? 
 ```
 
-(I have found that the Cloud9 terminal UI does not handle this perfectly; you
+(I have found that the Cloud9 UI does not handle the manipulation of the terminal cursor perfectly; you
 may want to download the `lil-game` repository and run the terminal application
 locally. Or you might prefer to `ssh` into the Cloud9 host from your terminal,
 which would also resolve this problem.)
+
+From this interface, you can type in digits to select which move you want to make. The `tictactui`
+currently only handles human players; revising it to switch roles between human
+and AI play is left as an exercise for now.
+
+You can also hit `q` to quit. Due to the way that `tictactui` manipulates the terminal
+state, `Ctrl-C` may or may not work for quitting at different times.
 
 ## Development
 
