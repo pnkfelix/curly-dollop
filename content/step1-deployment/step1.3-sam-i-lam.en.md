@@ -147,9 +147,7 @@ Value               https://uniqsnwflk.execute-api.us-east-2.amazonaws.com/Prod/
 Successfully created/updated stack - lil-game-tictactoe4 in us-east-2
 ```
 
-::alert[Your URL will *not* start with uniqsnwflk. Your output will be different;
-your URL is not a unique snow flake.
-(Thanks to Tyler Durden and Rene Magritté for this tip.)]{header="Note"}
+::alert[Your URL will *not* start with uniqsnwflk. Your output will be different; your URL is not a unique snow flake. (Thanks to Tyler Durden and Rene Magritté for this tip.)]{header="Note"}
 
 Take note of the URL after that value. We will be using it below.
 

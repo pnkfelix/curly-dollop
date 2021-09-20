@@ -5,8 +5,7 @@ weight : 60
 
 If you made it this far, congratulations!
 
-::alert[This section has not been completely developed yet. Namely, Felix has not
-yet prototyped the code outlined below.]{header="Note"}
+::alert[This section has not been completely developed yet. Namely, Felix has not yet prototyped the code outlined below.]{header="Note"}
 
 Our next step is to work on making our game service able to get smarter over
 time, by having it store information about past games, and use that information
