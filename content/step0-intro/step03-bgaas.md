@@ -31,13 +31,42 @@ Time limitations also lead us to a simple text-interface to our service.
 However, I hope you can see how the architecture could be deployed with a
 web-based front-end, with nicer graphics for each game.
 
-## Player AI: graph/tree search over future moves
+### Brief explanation of the game service and command set
+
+The service is designed to handle many different games, in that we want one
+protocol, and ideally one (text terminal) client, to work without any ingrained
+knowledge of the game being played.
+
+The service works being entirely stateless: all of the game state is encoded in
+a string that is returned from the service. Client code can then pass a
+game-state to the service and ask it spell out what moves are available to a
+human player, or to choose a move itself.
+
+The protocol defines a fixed set of commands that are used to interact with any
+given game:
+
+ * New (`/n/`): create a fresh game, where no moves have been made,
+ * List (`/l/<game-state>`): lists the moves available from the current state,
+ * Render (`/r/<game-state>`): produces a nice text rendering of the game state,
+ * Select (`/s/<game-state>`): produces which move is best at that state, according to the game AI.
+
+With these operations, the interactions with many turn-based games can be encoded.
+
+## Thoughts for the future
+
+These are some stray thoughts to keep in mind as you work.
+
+### Player AI
+
+In a turn-based game, the computer player AI is likely to use a tree-search over
+future moves. (Or potentially a graph search, if many nodes in the tree are
+duplicates).
 
 Depending on the game, such search can be computationally-intensive.
 
 (This motivates efficient runtime code!)
 
-## Async communication with external world
+### Async communication with external world
 
 The system will be able to store info about past game outcomes persistently,
 in the cloud.

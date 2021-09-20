@@ -11,6 +11,15 @@ Manager (SAM).
 (This is not the sole option for Rust in the Cloud. It is just an easy way to
 get something running in the time constraints of a two hour workshop.)
 
+# Setup
+
+First, we will set up AWS accounts for our exercises, if we haven't already.
+
+The act of setting up these accounts can take a while, so we will initiate the
+process early (i.e. now), and then let the setup proceed *asynchronously* while
+work through some other opening material.
+
+
 # Exercises
 
 Exercise 1: Get a TicTacToe game launched, and demonstrate it running.
