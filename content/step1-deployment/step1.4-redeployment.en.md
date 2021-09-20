@@ -28,3 +28,5 @@ instead of "tictactoe"). You might also accomplish such a rename by directly
 editing the `samconfig.toml` file.
 
 Once you have replaced the game, redeploy and test out the result.
+
+::alert[In the actual re\:Invent workshop, the rules of ConnectFour will be provided in the same manner that TicTacToe is. Today, however, implementing ConnectFour is left as a more elaborate exercise for the reader.]{header="Note"}
